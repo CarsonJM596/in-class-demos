@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Terrain.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://World.gd" type="Script" id=3]
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1080, 10 )
+
+[node name="World" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Terrain" parent="." instance=ExtResource( 1 )]
+scale = Vector2( 3, 3 )
+tile_data = PoolIntArray( 65535, 0, 0, 131071, 0, 0, 196607, 0, 0, 262143, 0, 0, 196617, 0, 1, 196618, 0, 2, 196619, 0, 2, 196620, 0, 2, 196621, 0, 2, 196622, 0, 2, 196623, 0, 2, 196624, 0, 2, 196625, 0, 3, 327679, 0, 0, 262147, 0, 14, 262148, 0, 13, 262149, 0, 12, 262150, 0, 13, 262151, 0, 15, 393215, 0, 0, 327685, 0, 65548, 458751, 0, 0, 393221, 0, 196620, 524287, 0, 0, 458752, 0, 65537, 458753, 0, 65538, 458754, 0, 65538, 458755, 0, 65538, 458756, 0, 65538, 458757, 0, 65538, 458758, 0, 65539, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 458770, 0, 0, 458771, 0, 0, 458772, 0, 0, 458773, 0, 0, 458774, 0, 0, 458775, 0, 0, 458776, 0, 0, 524288, 0, 393217, 524289, 0, 393218, 524290, 0, 393218, 524291, 0, 393218, 524292, 0, 393218, 524293, 0, 393218, 524294, 0, 393219, 589824, 0, 393217, 589825, 0, 393218, 589826, 0, 393218, 589827, 0, 393218, 589828, 0, 393218, 589829, 0, 393218, 589830, 0, 393219, 655360, 0, 393217, 655361, 0, 393218, 655362, 0, 393218, 655363, 0, 393218, 655364, 0, 393218, 655365, 0, 393218, 655366, 0, 393219 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 30, 200 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+limit_left = 0
+limit_bottom = 600
+limit_smoothed = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+drag_margin_left = 0.4
+drag_margin_right = 0.4
+
+[node name="KillPlane" type="Area2D" parent="."]
+position = Vector2( 1080, 720 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillPlane"]
+shape = SubResource( 1 )
+
+[node name="Enemy" parent="." instance=ExtResource( 4 )]
+position = Vector2( 300, 300 )
+
+[connection signal="body_entered" from="KillPlane" to="." method="_on_KillPlane_body_entered"]
