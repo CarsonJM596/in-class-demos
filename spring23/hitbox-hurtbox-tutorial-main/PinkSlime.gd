@@ -10,12 +10,14 @@ func _ready():
 	$AnimatedSprite.flip_h = direction > 0
 	$FloorDetector.position.x = $CollisionShape2D.shape.get_extents().x * direction
 	$FloorDetector.enabled = detects_cliffs
+	if detects_cliffs:
+		modulate = Color(0,1,1,1)
 	
 func _physics_process(delta):
 	velocity.y += GRAVITY
 	velocity.x = speed * direction
 	velocity = move_and_slide(velocity, Vector2.UP)
-	if is_on_wall() or (not $FloorDetector.is_colliding() and detects_cliffs and is_on_floor()):
+	if is_on_wall() or (not $FloorDetector.is_colliding() and detects_cliffs  and is_on_floor()):
 		direction *= -1
 		$AnimatedSprite.flip_h = direction > 0
 		$FloorDetector.position.x = $CollisionShape2D.shape.get_extents().x * direction
