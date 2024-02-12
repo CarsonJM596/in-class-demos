@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dk3rywa05lqyq"]
+
+[ext_resource type="PackedScene" uid="uid://dada2cgo3nrxi" path="res://player.tscn" id="1_dt5mp"]
+[ext_resource type="PackedScene" uid="uid://cw4nlaxnlupv7" path="res://tile_map.tscn" id="2_5xoe4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b2iil"]
+size = Vector2(294, 40)
+
+[node name="World" type="Node2D"]
+
+[node name="Platform" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Platform"]
+offset_left = 316.0
+offset_top = 241.0
+offset_right = 608.0
+offset_bottom = 281.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2(461, 261)
+shape = SubResource("RectangleShape2D_b2iil")
+one_way_collision = true
+
+[node name="TileMap" parent="." instance=ExtResource("2_5xoe4")]
+layer_0/tile_data = PackedInt32Array(393216, 65536, 0, 393217, 131072, 0, 393218, 131072, 0, 393219, 131072, 0, 393220, 131072, 0, 393221, 131072, 0, 393222, 131072, 0, 393223, 131072, 0, 393224, 196608, 0, 393226, 262144, 0, 196613, 327680, 0, 196614, 393216, 0, 196615, 393216, 0, 196616, 393216, 0, 196617, 458752, 0)
+
+[node name="Player" parent="." instance=ExtResource("1_dt5mp")]
+position = Vector2(176, 328)
+JUMP_VELOCITY = -700.0
