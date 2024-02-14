@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dk3rywa05lqyq"]
+[gd_scene load_steps=5 format=3 uid="uid://dk3rywa05lqyq"]
 
 [ext_resource type="PackedScene" uid="uid://dada2cgo3nrxi" path="res://player.tscn" id="1_dt5mp"]
 [ext_resource type="PackedScene" uid="uid://cw4nlaxnlupv7" path="res://tile_map.tscn" id="2_5xoe4"]
+[ext_resource type="PackedScene" uid="uid://0f40dakyvsr4" path="res://enemy.tscn" id="3_8whdy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b2iil"]
 size = Vector2(294, 40)
@@ -28,3 +29,6 @@ layer_0/tile_data = PackedInt32Array(393216, 65536, 0, 393217, 131072, 0, 393218
 [node name="Player" parent="." instance=ExtResource("1_dt5mp")]
 position = Vector2(176, 328)
 JUMP_VELOCITY = -700.0
+
+[node name="Enemy" parent="." instance=ExtResource("3_8whdy")]
+position = Vector2(417, 315)

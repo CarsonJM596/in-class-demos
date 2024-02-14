@@ -35,3 +35,6 @@ func _physics_process(delta):
 	if not is_on_floor():
 		$AnimatedSprite2D.animation = 'jump'
 	move_and_slide()
+
+func ow():
+	queue_free()
