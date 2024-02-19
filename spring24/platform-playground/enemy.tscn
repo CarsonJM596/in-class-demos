@@ -4,13 +4,13 @@
 [ext_resource type="Script" path="res://enemy.gd" id="1_y2c64"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kk1rc"]
-size = Vector2(54, 58)
+size = Vector2(54, 2)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7vlw3"]
-size = Vector2(4, 50)
+size = Vector2(62, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dw275"]
-size = Vector2(55, 6)
+size = Vector2(60, 9)
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 4
@@ -22,14 +22,14 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_sr7de")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(0, 29)
 shape = SubResource("RectangleShape2D_kk1rc")
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(-29, 3)
+position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_7vlw3")
 debug_color = Color(0.905882, 0.290196, 0.254902, 0.419608)
 
@@ -37,7 +37,7 @@ debug_color = Color(0.905882, 0.290196, 0.254902, 0.419608)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(0.5, -28)
+position = Vector2(0, -26.5)
 shape = SubResource("RectangleShape2D_dw275")
 
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

@@ -38,3 +38,6 @@ func _physics_process(delta):
 
 func ow():
 	queue_free()
+
+func bounce():
+	velocity.y = JUMP_VELOCITY/1.5

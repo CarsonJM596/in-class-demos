@@ -5,7 +5,7 @@ var speed = -50
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	print(gravity)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -24,5 +24,12 @@ func _on_hurtbox_body_entered(body):
 
 
 func _on_hit_box_body_entered(body):
-	speed = 0
+	speed = 150
 	print ("I have been squeeeeshed")
+	body.bounce()
+	$HitBox/CollisionShape2D.set_deferred('disabled',true)
+	$Hurtbox/CollisionShape2D.set_deferred('disabled', true)
+	velocity.y = -400
+	$CollisionShape2D.set_deferred('disabled', true)
+	
+	#queue_free()
