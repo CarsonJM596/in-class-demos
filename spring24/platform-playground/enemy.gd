@@ -1,11 +1,13 @@
 extends CharacterBody2D
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var speed = -50
+var speed = 50
+@export var is_lemming = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(gravity)
+	if is_lemming:
+		$CliffDetector.set_deferred('enabled', false)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -15,6 +17,9 @@ func _process(delta):
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
+	if $CliffDetector.enabled and not $CliffDetector.is_colliding():
+		speed = -speed
+		$CliffDetector.position.x *= -1
 	velocity.x = speed
 	move_and_slide()
 

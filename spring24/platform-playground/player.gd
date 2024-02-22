@@ -41,3 +41,6 @@ func ow():
 
 func bounce():
 	velocity.y = JUMP_VELOCITY/1.5
+
+func set_pos(pos):
+	position=pos

@@ -1,13 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://dk3rywa05lqyq"]
+[gd_scene load_steps=7 format=3 uid="uid://dk3rywa05lqyq"]
 
 [ext_resource type="PackedScene" uid="uid://dada2cgo3nrxi" path="res://player.tscn" id="1_dt5mp"]
+[ext_resource type="Script" path="res://world.gd" id="1_ih3of"]
 [ext_resource type="PackedScene" uid="uid://cw4nlaxnlupv7" path="res://tile_map.tscn" id="2_5xoe4"]
 [ext_resource type="PackedScene" uid="uid://0f40dakyvsr4" path="res://enemy.tscn" id="3_8whdy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b2iil"]
 size = Vector2(294, 40)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_au21b"]
+size = Vector2(2822, 121)
+
 [node name="World" type="Node2D"]
+script = ExtResource("1_ih3of")
 
 [node name="Platform" type="StaticBody2D" parent="."]
 visible = false
@@ -31,4 +36,15 @@ position = Vector2(176, 328)
 JUMP_VELOCITY = -700.0
 
 [node name="Enemy" parent="." instance=ExtResource("3_8whdy")]
-position = Vector2(417, 315)
+position = Vector2(419, 350)
+
+[node name="PlayerSpawnPoint" type="Marker2D" parent="."]
+position = Vector2(98, 289)
+
+[node name="KillPlane" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillPlane"]
+position = Vector2(851, 766)
+shape = SubResource("RectangleShape2D_au21b")
+
+[connection signal="body_entered" from="KillPlane" to="." method="game_over"]
