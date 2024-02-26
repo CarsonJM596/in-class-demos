@@ -22,10 +22,12 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_sr7de")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 29)
 shape = SubResource("RectangleShape2D_kk1rc")
 
 [node name="Hurtbox" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
@@ -34,6 +36,7 @@ shape = SubResource("RectangleShape2D_7vlw3")
 debug_color = Color(0.905882, 0.290196, 0.254902, 0.419608)
 
 [node name="HitBox" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]

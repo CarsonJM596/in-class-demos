@@ -29,14 +29,23 @@ shape = SubResource("RectangleShape2D_b2iil")
 one_way_collision = true
 
 [node name="TileMap" parent="." instance=ExtResource("2_5xoe4")]
-layer_0/tile_data = PackedInt32Array(393216, 65536, 0, 393217, 131072, 0, 393218, 131072, 0, 393219, 131072, 0, 393220, 131072, 0, 393221, 131072, 0, 393222, 131072, 0, 393223, 131072, 0, 393224, 196608, 0, 393226, 262144, 0, 196613, 327680, 0, 196614, 393216, 0, 196615, 393216, 0, 196616, 393216, 0, 196617, 458752, 0)
+layer_0/tile_data = PackedInt32Array(393216, 65536, 0, 393217, 131072, 0, 393218, 131072, 0, 393219, 131072, 0, 393220, 131072, 0, 393221, 131072, 0, 393222, 131072, 0, 393223, 131072, 0, 393224, 196608, 0, 393226, 262144, 0, 196613, 327680, 0, 196614, 393216, 0, 196615, 393216, 0, 196616, 393216, 0, 196617, 458752, 0, 393228, 131072, 0, 393229, 131072, 0, 393230, 131072, 0, 393231, 131072, 0, 393232, 131072, 0, 393233, 131072, 0, 393234, 131072, 0, 393235, 131072, 0, 393236, 131072, 0, 393237, 131072, 0, 393238, 131072, 0, 393239, 131072, 0, 393240, 131072, 0, 393241, 131072, 0, 393242, 131072, 0, 393243, 131072, 0, 393244, 131072, 0, 393245, 131072, 0, 393246, 131072, 0, 393247, 131072, 0, 393248, 131072, 0, 458751, 131072, 0, 393215, 131072, 0, 327679, 131072, 0, 262143, 131072, 0, 196607, 131072, 0, 131071, 131072, 0, 65535, 131072, 0, -1, 131072, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_dt5mp")]
 position = Vector2(176, 328)
 JUMP_VELOCITY = -700.0
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+rotation = 1.5708
+limit_left = 0
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_horizontal_offset = 1.0
+editor_draw_drag_margin = true
+
 [node name="Enemy" parent="." instance=ExtResource("3_8whdy")]
 position = Vector2(419, 350)
+is_lemming = true
 
 [node name="PlayerSpawnPoint" type="Marker2D" parent="."]
 position = Vector2(98, 289)
@@ -44,7 +53,10 @@ position = Vector2(98, 289)
 [node name="KillPlane" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillPlane"]
-position = Vector2(851, 766)
+position = Vector2(851, 721)
 shape = SubResource("RectangleShape2D_au21b")
+
+[node name="Enemy2" parent="." instance=ExtResource("3_8whdy")]
+position = Vector2(178, 170)
 
 [connection signal="body_entered" from="KillPlane" to="." method="game_over"]

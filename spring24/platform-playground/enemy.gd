@@ -8,6 +8,7 @@ var speed = 50
 func _ready():
 	if is_lemming:
 		$CliffDetector.set_deferred('enabled', false)
+		modulate = Color.WEB_GREEN
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
