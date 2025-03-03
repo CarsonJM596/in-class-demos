@@ -2,10 +2,15 @@ extends CharacterBody2D
 
 signal hit_player
 signal ouch
+@export var detect_cliffs = false
 
 const SPEED = 150.0
 var dir = -1
 
+func _ready() -> void:
+	if detect_cliffs:
+		$RayCast2D.enabled = true
+		modulate = Color(0,0,1,0.8)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -13,6 +18,9 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	if is_on_wall():
 		dir *= -1
+	if detect_cliffs and not $RayCast2D.is_colliding():
+		dir *= -1
+		$RayCast2D.position.x *= -1
 	velocity.x = dir * SPEED
 	
 	

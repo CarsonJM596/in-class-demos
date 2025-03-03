@@ -85,6 +85,10 @@ position = Vector2(78, 499)
 [node name="Enemy" parent="." instance=ExtResource("7_6t8jo")]
 position = Vector2(905, 512)
 
+[node name="Enemy2" parent="." instance=ExtResource("7_6t8jo")]
+position = Vector2(703, 9)
+detect_cliffs = true
+
 [connection signal="body_entered" from="KillPlane" to="." method="_on_kill_plane_body_entered"]
 [connection signal="hit_player" from="Enemy" to="." method="_on_enemy_hit_player"]
 [connection signal="ouch" from="Enemy" to="." method="_on_enemy_ouch"]
