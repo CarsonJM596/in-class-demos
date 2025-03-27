@@ -20,7 +20,6 @@ func _on_kill_plane_body_entered(body: Node2D) -> void:
 func _on_enemy_hit_player() -> void:
 	$Player.position = $PlayerStartPosition.position
 
-
 func _on_enemy_ouch() -> void:
 	# maybe not
 	#queue_free()
