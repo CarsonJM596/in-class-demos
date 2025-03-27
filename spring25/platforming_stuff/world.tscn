@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://world.gd" id="1_3vnjl"]
 [ext_resource type="PackedScene" uid="uid://710pevxq0wmq" path="res://player.tscn" id="1_lftgs"]
 [ext_resource type="PackedScene" uid="uid://boyjs83cbh2uk" path="res://map_tiles.tscn" id="2_aem3f"]
-[ext_resource type="Texture2D" uid="uid://cckroqurpfofp" path="res://background.png" id="4_gmco8"]
+[ext_resource type="Texture2D" uid="uid://qgak1aw3gpdd" path="res://background.png" id="4_gmco8"]
 [ext_resource type="PackedScene" uid="uid://eyfm52fdtdj7" path="res://platform_terrain.tscn" id="4_ty7jh"]
-[ext_resource type="Texture2D" uid="uid://dqbc2v3ibhq7" path="res://clouds1.png" id="6_equ8k"]
+[ext_resource type="Texture2D" uid="uid://dq6tyd2hsjurj" path="res://clouds1.png" id="6_equ8k"]
 [ext_resource type="PackedScene" uid="uid://bs312oudgcdwn" path="res://enemy.tscn" id="7_6t8jo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uhes4"]
