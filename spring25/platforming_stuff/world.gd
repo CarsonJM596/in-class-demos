@@ -24,3 +24,9 @@ func _on_enemy_ouch() -> void:
 	# maybe not
 	#queue_free()
 	pass
+
+func _on_player_win() -> void:
+	%Label.text = "You win!"
+	await get_tree().create_timer(2.0).timeout  # Wait for 2 seconds
+	%Label.hide()
+	$Player.position = $PlayerStartPosition.position
